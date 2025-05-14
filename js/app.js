@@ -20,22 +20,30 @@ fetch('core/nav.html')
     .catch(error => console.error('Error loading content:', error));
 
 
-
-let lightTheme = true;
+let darkTheme = true;
 
 function changeTheme() {
    let body = document.querySelector('body');
-   let headerLogo = document.getElementById("h-logo");
 
-   if (lightTheme) {
+   if (!darkTheme) {
        body.setAttribute("data-theme", "dark");
-       headerLogo.setAttribute("src", "/assets/img/logo-black.png");
 
-       lightTheme = !lightTheme;
+       darkTheme = !darkTheme;
    } else {
        body.setAttribute("data-theme", "light");
-       headerLogo.setAttribute("src", "/assets/img/logo-white.png");
 
-       lightTheme = !lightTheme;
+       darkTheme = !darkTheme;
    }
 }
+
+function getURI() {
+    const path = window.location.pathname;
+    if (path === "/" || path === "") {
+        return "HOME";
+    }
+    return path.split('/').filter(Boolean).join('/').toUpperCase();
+}
+
+setInterval(() => {
+    document.getElementById("h-title").innerHTML = `${getURI()}`;
+}, 1);
