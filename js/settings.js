@@ -5,7 +5,6 @@ const getDeviceInfo = () => {
     let os = "Unknown OS";
     let osVersion = "Unknown Version";
 
-    // Detect Device Model
     const modelMatch = userAgent.match(/\((.*?)\)/);
     if (modelMatch) {
         const modelInfo = modelMatch[1].split(";").map(item => item.trim());
@@ -17,7 +16,6 @@ const getDeviceInfo = () => {
         }
     }
 
-    // Detect OS and Version
     if (/Windows NT/i.test(userAgent)) {
         os = "Windows";
         const versionMatch = userAgent.match(/Windows NT ([\d.]+)/);
@@ -38,9 +36,10 @@ const getDeviceInfo = () => {
         os = "Linux";
     }
 
-    // If using User Agent Data API (more accurate)
-    if (userAgentData.platform) {
-        os = userAgentData.platform;
+    const isPWA = window.matchMedia('(display-mode: standalone)').matches;
+
+    if (isPWA) {
+        if (userAgentData.platform) os = userAgentData.platform;
         if (userAgentData.platformVersion) osVersion = userAgentData.platformVersion;
         if (userAgentData.model) device = userAgentData.model;
     }
@@ -49,13 +48,24 @@ const getDeviceInfo = () => {
         device,
         os: `${os} ${osVersion}`,
         userAgent,
+        isPWA
     };
 };
 
-// Displaying on the HTML
-document.getElementById("di-device").innerHTML = getDeviceInfo().device;
-document.getElementById("di-os").innerHTML = getDeviceInfo().os;
+document.addEventListener("DOMContentLoaded", () => {
+    const info = getDeviceInfo();
+    if (document.getElementById("di-device")) {
+        document.getElementById("di-device").innerHTML = info.device;
+    }
+    if (document.getElementById("di-os")) {
+        document.getElementById("di-os").innerHTML = info.os;
+    }
+    if (document.getElementById("di-runspwa")) {
+        document.getElementById("di-runspwa").innerHTML = info.isPWA;
+    }
 
-// console.log("User Agent:", getDeviceInfo().userAgent);
-// console.log("Device:", getDeviceInfo().device);
-// console.log("OS:", getDeviceInfo().os);
+    console.log("User Agent:", info.userAgent);
+    console.log("Device:", info.device);
+    console.log("OS:", info.os);
+    console.log("Running as PWA:", info.isPWA);
+});
