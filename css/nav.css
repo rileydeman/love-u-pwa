@@ -1,0 +1,35 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1% .5%;
+
+    .navItem {
+        width: 19.5%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+
+        .navi-icon {
+            aspect-ratio: 1/1;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5%;
+
+            img {
+                aspect-ratio: 1/1;
+                width: 80%;
+            }
+        }
+
+        .navi-title {
+            color: #FFFFFF;
+            font-size: .75rem;
+        }
+    }
+}
