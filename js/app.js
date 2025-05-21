@@ -1,3 +1,7 @@
+if (!localStorage.getItem("theme") || localStorage.getItem("theme") == "") {
+    localStorage.setItem("theme", "dark");
+}
+
 fetch('core/header.html')
     .then(response => response.text())
     .then(data => {
@@ -18,23 +22,6 @@ fetch('core/nav.html')
         document.getElementById('nav').innerHTML = data;
     })
     .catch(error => console.error('Error loading content:', error));
-
-
-let darkTheme = true;
-
-function changeTheme() {
-   let body = document.querySelector('body');
-
-   if (!darkTheme) {
-       body.setAttribute("data-theme", "dark");
-
-       darkTheme = !darkTheme;
-   } else {
-       body.setAttribute("data-theme", "light");
-
-       darkTheme = !darkTheme;
-   }
-}
 
 function getURI() {
     const path = window.location.pathname;
@@ -76,4 +63,20 @@ setTimeout(() => {
 
     settingsIcon.addEventListener("click", toggleSettings);
     closeIcon.addEventListener("click", toggleSettings);
-}, 100)
+}, 100);
+
+document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("theme") == "light") {
+
+        setTimeout(() => {
+            let body = document.querySelector('body');
+            const settingsThemeSwitch = document.getElementById("s-themeSwitch");
+
+            body.setAttribute("data-theme", "light");
+            settingsThemeSwitch.classList.remove("themeSwitchOn");
+
+
+            darkTheme = false;
+        }, 50);
+    }
+})

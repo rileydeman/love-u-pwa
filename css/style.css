@@ -1,4 +1,4 @@
-:root {
+ :root {
     --accent: #F03228;
     --base: #000000;
     --primary: #FFFFFF;
@@ -50,6 +50,34 @@ h3 {
     color: var(--primary);
     font-family: sensation;
     font-weight: 450;
+}
+
+.themeSwitch {
+    aspect-ratio: 1.5/1;
+    width: 15%;
+    border: 2px solid var(--primary50);
+    border-radius: 50px;
+    padding: 1.5%;
+    transition: .5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+    .themeSwitchToggle {
+        aspect-ratio: 1/1;
+        height: 100%;
+        border-radius: 50%;
+        background-color: var(--primary);
+        opacity: .5;
+    }
+}
+.themeSwitchOn {
+    background-color: var(--accent);
+    justify-content: right;
+
+    .themeSwitchToggle {
+        opacity: 1;
+    }
 }
 
 body {

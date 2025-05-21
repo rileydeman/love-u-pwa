@@ -1,4 +1,4 @@
-<div id="content">
+<div id="s-content">
     <header id="s-header">
         <a id="sh-logoDiv" href="/">
             <img src="assets/img/logo-black.png" alt="" id="sh-logo">
@@ -13,10 +13,7 @@
         </div>
     </header>
 
-    <main>
-<!--        <p>This is my cool PWA on the Settings page!!! 😎</p>-->
-<!--        <button onclick="changeTheme()">Change Theme</button>-->
-
+    <main id="s-main">
         <div id="s-options">
             <div class="so-item">
                 <a class="soi-title">
@@ -33,7 +30,12 @@
                     <i class="arrow down"></i>
                 </a>
                 <div class="soi-content">
-                    <p>#soon</p>
+                    <div id="s-themeSwitchDiv" class="soi-subItem">
+                        <p>Dark Mode</p>
+                        <div id="s-themeSwitch" class="themeSwitch themeSwitchOn">
+                            <div class="themeSwitchToggle"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

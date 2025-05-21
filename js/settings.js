@@ -88,6 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
+
+        const settingsThemeSwitchDiv = document.getElementById("s-themeSwitchDiv")
+
+        settingsThemeSwitchDiv.addEventListener("click", changeTheme);
+
     }, 100);
 
     // console.log("User Agent:", info.userAgent);
@@ -95,3 +100,24 @@ document.addEventListener("DOMContentLoaded", () => {
     // console.log("OS:", info.os);
     // console.log("Running as PWA:", info.isPWA);
 });
+
+let darkTheme = true;
+
+function changeTheme() {
+    let body = document.querySelector('body');
+    const settingsThemeSwitch = document.getElementById("s-themeSwitch");
+
+    if (!darkTheme) {
+        body.setAttribute("data-theme", "dark");
+        settingsThemeSwitch.classList.add("themeSwitchOn");
+        localStorage.setItem("theme", "dark");
+
+        darkTheme = !darkTheme;
+    } else {
+        body.setAttribute("data-theme", "light");
+        settingsThemeSwitch.classList.remove("themeSwitchOn");
+        localStorage.setItem("theme", "light");
+
+        darkTheme = !darkTheme;
+    }
+}
