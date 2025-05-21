@@ -47,3 +47,33 @@ function getURI() {
 setInterval(() => {
     document.getElementById("h-title").innerHTML = `${getURI()}`;
 }, 1);
+
+
+// Settings toggle
+const settingsAside = document.getElementById("settings");
+let settingsOpen = false;
+fetch('core/settings.html')
+    .then(response => response.text())
+    .then(data => {
+        settingsAside.innerHTML = data;
+    })
+    .catch(error => console.error('Error loading content:', error));
+
+function toggleSettings() {
+    if (settingsOpen) {
+        settingsAside.style.top = "100%";
+        settingsOpen = !settingsOpen;
+    } else {
+        settingsAside.style.top = 0;
+        settingsOpen = !settingsOpen;
+    }
+
+}
+
+setTimeout(() => {
+    const settingsIcon = document.getElementById("h-settingsIcon");
+    const closeIcon = document.getElementById("sh-settingsIcon");
+
+    settingsIcon.addEventListener("click", toggleSettings);
+    closeIcon.addEventListener("click", toggleSettings);
+}, 100)

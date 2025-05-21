@@ -3,7 +3,7 @@ const getDeviceInfo = () => {
     const userAgentData = navigator.userAgentData || {};
     let device = "Unknown Device";
     let os = "Unknown OS";
-    let osVersion = "Unknown Version";
+    let osVersion = "";
 
     const modelMatch = userAgent.match(/\((.*?)\)/);
     if (modelMatch) {
@@ -54,18 +54,44 @@ const getDeviceInfo = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const info = getDeviceInfo();
-    if (document.getElementById("di-device")) {
-        document.getElementById("di-device").innerHTML = info.device;
+
+    setTimeout(() => {
+    if (document.getElementById("sdi-device")) {
+        document.getElementById("sdi-device").innerHTML = info.device;
     }
-    if (document.getElementById("di-os")) {
-        document.getElementById("di-os").innerHTML = info.os;
+    if (document.getElementById("sdi-os")) {
+        document.getElementById("sdi-os").innerHTML = info.os;
     }
-    if (document.getElementById("di-runspwa")) {
-        document.getElementById("di-runspwa").innerHTML = info.isPWA;
+    if (document.getElementById("sdi-runspwa")) {
+        document.getElementById("sdi-runspwa").innerHTML = info.isPWA;
     }
 
-    console.log("User Agent:", info.userAgent);
-    console.log("Device:", info.device);
-    console.log("OS:", info.os);
-    console.log("Running as PWA:", info.isPWA);
+
+        const settingsItemsTitles = document.getElementsByClassName("soi-title");
+        const settingsItemsContents = document.getElementsByClassName("soi-content");
+
+        for (let i = 0; i < settingsItemsTitles.length; i++) {
+
+            settingsItemsTitles[i].addEventListener("click", function () {
+
+                if (settingsItemsContents[i].classList.contains("soic-open")) {
+                    settingsItemsContents[i].classList.remove("soic-open");
+
+                    settingsItemsTitles[i].childNodes[3].classList.remove("up");
+                    settingsItemsTitles[i].childNodes[3].classList.add("down");
+                } else {
+                    settingsItemsContents[i].classList.add("soic-open");
+
+                    settingsItemsTitles[i].childNodes[3].classList.remove("down");
+                    settingsItemsTitles[i].childNodes[3].classList.add("up");
+                }
+            });
+        }
+
+    }, 100);
+
+    // console.log("User Agent:", info.userAgent);
+    // console.log("Device:", info.device);
+    // console.log("OS:", info.os);
+    // console.log("Running as PWA:", info.isPWA);
 });
