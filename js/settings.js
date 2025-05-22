@@ -110,13 +110,13 @@ function changeTheme() {
     if (!darkTheme) {
         body.setAttribute("data-theme", "dark");
         settingsThemeSwitch.classList.add("themeSwitchOn");
-        localStorage.setItem("theme", "dark");
+        localStorage.setItem("loveufestival-theme", "dark");
 
         darkTheme = !darkTheme;
     } else {
         body.setAttribute("data-theme", "light");
         settingsThemeSwitch.classList.remove("themeSwitchOn");
-        localStorage.setItem("theme", "light");
+        localStorage.setItem("loveufestival-theme", "light");
 
         darkTheme = !darkTheme;
     }

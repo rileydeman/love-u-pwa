@@ -1,5 +1,5 @@
-if (!localStorage.getItem("theme") || localStorage.getItem("theme") == "") {
-    localStorage.setItem("theme", "dark");
+if (!localStorage.getItem("loveufestival-theme") || localStorage.getItem("loveufestival-theme") == "") {
+    localStorage.setItem("loveufestival-theme", "dark");
 }
 
 fetch('core/header.html')
@@ -63,10 +63,17 @@ setTimeout(() => {
 
     settingsIcon.addEventListener("click", toggleSettings);
     closeIcon.addEventListener("click", toggleSettings);
+
+    const footerCopyright = document.getElementById("f-copyright");
+    let date = new Date();
+
+    if (date.getFullYear() > 2023) {
+        footerCopyright.innerHTML = `-${date.getFullYear()}`;
+    }
 }, 100);
 
 document.addEventListener("DOMContentLoaded", () => {
-    if (localStorage.getItem("theme") == "light") {
+    if (localStorage.getItem("loveufestival-theme") == "light") {
 
         setTimeout(() => {
             let body = document.querySelector('body');

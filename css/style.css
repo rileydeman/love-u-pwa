@@ -107,6 +107,22 @@ body {
         main {
             min-height: 100%;
         }
+
+        footer {
+            padding: 2.5% 1.5%;
+            background-color: #000000;
+
+            p {
+                color: #FFFFFF;
+                font-family: sensation;
+
+                a {
+                    text-decoration: none;
+                    color: var(--accent);
+                    font-weight: 400;
+                }
+            }
+        }
     }
 
     nav {
