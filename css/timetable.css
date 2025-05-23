@@ -1,0 +1,198 @@
+#content {
+    main {
+        padding: 2.5%;
+        height: 100%;
+
+        #daySelector {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--primary);
+
+            .ds-item {
+                width: 50%;
+                padding: 2.5%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .dsi-selected {
+                background-color: var(--primary);
+
+                p {
+                    color: var(--base);
+                }
+            }
+        }
+
+        #timetableViewOptions {
+            padding: 4% 0;
+        }
+
+        .horizontal-timetable {
+            width: 100%;
+            height: 75%;
+            margin-top: 2.5%;
+            overflow: scroll;
+            /*border: 1px solid #FF0000;*/
+
+            .timelineHeader,
+            .stageName-wrapper {
+                position: sticky !important;
+            }
+
+            .timelineHeader {
+                top: 0;
+                z-index: 6;
+                background-color: var(--base);
+
+                .timelineHeaderEvent {
+                    background-color: var(--primary50);
+                    padding: 1.5% 2.5%;
+                }
+            }
+
+            .stageName-wrapper {
+                margin: 2.5% 0;
+                padding: 1% 0;
+                left: 0;
+                z-index: 5;
+
+                p {
+                    color: var(--accent);
+                    font-weight: bold;
+                }
+            }
+
+
+            .timeLine {
+                width: 100%;
+                display: grid;
+                grid-column-gap: 1%;
+                grid-template-columns:
+                        [t-1100] 21% [t-1115] 21% [t-1130] 21% [t-1145] 21%
+                        [t-1200] 21% [t-1215] 21% [t-1230] 21% [t-1245] 21%
+                        [t-1300] 21% [t-1315] 21% [t-1330] 21% [t-1345] 21%
+                        [t-1400] 21% [t-1415] 21% [t-1430] 21% [t-1445] 21%
+                        [t-1500] 21% [t-1515] 21% [t-1530] 21% [t-1545] 21%
+                        [t-1600] 21% [t-1615] 21% [t-1630] 21% [t-1645] 21%
+                        [t-1700] 21% [t-1715] 21% [t-1730] 21% [t-1745] 21%
+                        [t-1800] 21% [t-1815] 21% [t-1830] 21% [t-1845] 21%
+                        [t-1900] 21% [t-1915] 21% [t-1930] 21% [t-1945] 21%
+                        [t-2000] 21% [t-2015] 21% [t-2030] 21% [t-2045] 21%
+                        [t-2100] 21% [t-2115] 21% [t-2130] 21% [t-2145] 21%
+                        [t-2200] 21% [t-2215] 21% [t-2230] 21% [t-2245] 21%
+                        [t-2300] 21% [t-2315] 21% [t-2330] 21% [t-2345] 21%
+                        [t-0000] 21% [t-0015] 21% [t-0030] 21% [t-0045] 21%
+                        [t-0100] 21% [t-0115] 21% [t-0130] 21% [t-0145] 21%
+                        [t-0200] 21% [t-0215] 21% [t-0230] 21% [t-0245] 21%
+                        [t-0300] 21% [t-0315] 21% [t-0330] 21% [t-0345] 21%;
+
+                [data-event-id="t11"] {
+                    grid-row: 1;
+                    grid-column: t-1100 / t-1200;
+                }
+                [data-event-id="t12"] {
+                    grid-row: 1;
+                    grid-column: t-1200 / t-1300;
+                }
+                [data-event-id="t13"] {
+                    grid-row: 1;
+                    grid-column: t-1300 / t-1400;
+                }
+                [data-event-id="t14"] {
+                    grid-row: 1;
+                    grid-column: t-1400 / t-1500;
+                }
+                [data-event-id="t15"] {
+                    grid-row: 1;
+                    grid-column: t-1500 / t-1600;
+                }
+                [data-event-id="t16"] {
+                    grid-row: 1;
+                    grid-column: t-1600 / t-1700;
+                }
+                [data-event-id="t17"] {
+                    grid-row: 1;
+                    grid-column: t-1700 / t-1800;
+                }
+                [data-event-id="t18"] {
+                    grid-row: 1;
+                    grid-column: t-1800 / t-1900;
+                }
+                [data-event-id="t19"] {
+                    grid-row: 1;
+                    grid-column: t-1900 / t-2000;
+                }
+                [data-event-id="t20"] {
+                    grid-row: 1;
+                    grid-column: t-2000 / t-2100;
+                }
+                [data-event-id="t21"] {
+                    grid-row: 1;
+                    grid-column: t-2100 / t-2200;
+                }
+                [data-event-id="t22"] {
+                    grid-row: 1;
+                    grid-column: t-2200 / t-2300;
+                }
+                [data-event-id="t23"] {
+                    grid-row: 1;
+                    grid-column: t-2300 / t-0000;
+                }
+                [data-event-id="t00"] {
+                    grid-row: 1;
+                    grid-column: t-0000 / t-0100;
+                }
+                [data-event-id="t01"] {
+                    grid-row: 1;
+                    grid-column: t-0100 / t-0200;
+                }
+                [data-event-id="t02"] {
+                    grid-row: 1;
+                    grid-column: t-0200 / t-0300;
+                }
+                [data-event-id="t03"] {
+                    grid-row: 1;
+                    grid-column: t-0300 / t-0400;
+                }
+
+                .timelineEvent {
+                    padding: 10% 5%;
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .tle-info {
+                        width: 80%;
+
+                        p {
+                            color: #FFFFFF;
+                        }
+
+                        .tle-artist {
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            width: 100%;
+                            font-weight: bold;
+                            margin-bottom: 3%;
+                        }
+
+                        .tle-time {
+                            font-size: .80rem;
+                        }
+                    }
+
+                    .tle-heart {
+                        aspect-ratio: 1/1;
+                        width: 15%;
+                    }
+                }
+            }
+        }
+    }
+}

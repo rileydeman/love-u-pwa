@@ -11,9 +11,11 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/timetable.css">
 
     <script defer src="js/app.js"></script>
     <script defer src="js/settings.js"></script>
+    <script defer src="js/timetable.js"></script>
 </head>
 <body data-theme="dark">
 
@@ -21,7 +23,140 @@
 
 <div id="content">
     <main>
-        <p>This is my cool PWA on the TimeTable page!!! 😎</p>
+        <div id="daySelector">
+            <div class="ds-item dsi-selected" data-day="SAT">
+                <p class="dsi-title">SATURDAY</p>
+            </div>
+            <div class="ds-item" data-day="SUN">
+                <p class="dsi-title">SUNDAY</p>
+            </div>
+        </div>
+
+        <div id="timetableViewOptions">
+            <p>Timetable View Options (horizontal or vertical)</p>
+        </div>
+
+        <div id="festivalGrid" class="horizontal-timetable">
+            <div class="timeLine timelineHeader">
+                <div class="timelineHeaderEvent" data-event-id="t11">
+                    <p>11:00 am</p>
+                </div>
+                <div class="timelineHeaderEvent" data-event-id="t12">
+                    <p>12:00 pm</p>
+                </div>
+                <div class="timelineHeaderEvent" data-event-id="t13">
+                    <p>1:00 pm</p>
+                </div>
+                <div class="timelineHeaderEvent" data-event-id="t14">
+                    <p>2:00 pm</p>
+                </div>
+                <div class="timelineHeaderEvent" data-event-id="t15">
+                    <p>3:00 pm</p>
+                </div>
+                <div class="timelineHeaderEvent" data-event-id="t16">
+                    <p>4:00 pm</p>
+                </div>
+                <div class="timelineHeaderEvent" data-event-id="t17">
+                    <p>5:00 pm</p>
+                </div>
+                <div class="timelineHeaderEvent" data-event-id="t18">
+                    <p>6:00 pm</p>
+                </div>
+                <div class="timelineHeaderEvent" data-event-id="t19">
+                    <p>7:00 pm</p>
+                </div>
+                <div class="timelineHeaderEvent" data-event-id="t20">
+                    <p>8:00 pm</p>
+                </div>
+                <div class="timelineHeaderEvent" data-event-id="t21">
+                    <p>9:00 pm</p>
+                </div>
+                <div class="timelineHeaderEvent" data-event-id="t22">
+                    <p>10:00 pm</p>
+                </div>
+                <div class="timelineHeaderEvent" data-event-id="t23">
+                    <p>11:00 pm</p>
+                </div>
+                <div class="timelineHeaderEvent" data-event-id="t00">
+                    <p>12:00 am</p>
+                </div>
+                <div class="timelineHeaderEvent" data-event-id="t01">
+                    <p>1:00 am</p>
+                </div>
+                <div class="timelineHeaderEvent" data-event-id="t02">
+                    <p>2:00 am</p>
+                </div>
+                <div class="timelineHeaderEvent" data-event-id="t03">
+                    <p>3:00 am</p>
+                </div>
+            </div>
+
+
+            <div class="stageName-wrapper">
+                <p class="stageName">Stage 1</p>
+            </div>
+            <div class="timeLine">
+                <div class="timelineEvent" data-event-id="test1" style="grid-row: 1; grid-column: t-1100 / t-1145; background-color: #FE0000;">
+                    <div class="tle-info">
+                        <p class="tle-artist">Artist Name</p>
+                        <p class="tle-time">11:00 &mdash; 11:45</p>
+                    </div>
+                    <div class="tle-heart"></div>
+                </div>
+            </div>
+
+            <div class="stageName-wrapper">
+                <p class="stageName">Stage 2</p>
+            </div>
+            <div class="timeLine">
+                <div class="timelineEvent" data-event-id="test1" style="grid-row: 1; grid-column: t-1100 / t-1145; background-color: #A100FE;">
+                    <div class="tle-info">
+                        <p class="tle-artist">Artist Name</p>
+                        <p class="tle-time">11:00 &mdash; 11:45</p>
+                    </div>
+                    <div class="tle-heart"></div>
+                </div>
+            </div>
+
+            <div class="stageName-wrapper">
+                <p class="stageName">Stage 3</p>
+            </div>
+            <div class="timeLine">
+                <div class="timelineEvent" data-event-id="test1" style="grid-row: 1; grid-column: t-1100 / t-1145; background-color: #808080;">
+                    <div class="tle-info">
+                        <p class="tle-artist">Artist Name</p>
+                        <p class="tle-time">11:00 &mdash; 11:45</p>
+                    </div>
+                    <div class="tle-heart"></div>
+                </div>
+            </div>
+
+            <div class="stageName-wrapper">
+                <p class="stageName">Stage 4</p>
+            </div>
+            <div class="timeLine">
+                <div class="timelineEvent" data-event-id="test1" style="grid-row: 1; grid-column: t-1100 / t-1145; background-color: #FF008A;">
+                    <div class="tle-info">
+                        <p class="tle-artist">Artist Name</p>
+                        <p class="tle-time">11:00 &mdash; 11:45</p>
+                    </div>
+                    <div class="tle-heart"></div>
+                </div>
+            </div>
+
+            <div class="stageName-wrapper">
+                <p class="stageName">Stage 5</p>
+            </div>
+            <div class="timeLine">
+                <div class="timelineEvent" data-event-id="test1" style="grid-row: 1; grid-column: t-1100 / t-1145; background-color: #FF008A;">
+                    <div class="tle-info">
+                        <p class="tle-artist">Artist Name</p>
+                        <p class="tle-time">11:00 &mdash; 11:45</p>
+                    </div>
+                    <div class="tle-heart"></div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer id="footer"></footer>
