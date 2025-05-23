@@ -46,11 +46,14 @@
             .timelineHeader {
                 top: 0;
                 z-index: 6;
-                background-color: var(--base);
 
                 .timelineHeaderEvent {
-                    background-color: var(--primary50);
+                    background-color: #505050;
                     padding: 1.5% 2.5%;
+
+                    p {
+                        color: #FFFFFF;
+                    }
                 }
             }
 
@@ -70,7 +73,7 @@
             .timeLine {
                 width: 100%;
                 display: grid;
-                grid-column-gap: 1%;
+                grid-column-gap: 1.5%;
                 grid-template-columns:
                         [t-1100] 21% [t-1115] 21% [t-1130] 21% [t-1145] 21%
                         [t-1200] 21% [t-1215] 21% [t-1230] 21% [t-1245] 21%
