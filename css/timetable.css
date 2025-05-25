@@ -29,6 +29,7 @@
 
         #timetableViewOptions {
             padding: 4% 0;
+            display: none;
         }
 
         .horizontal-timetable {
@@ -74,6 +75,7 @@
                 width: 100%;
                 display: grid;
                 grid-column-gap: 1.5%;
+                margin-bottom: 3%;
                 grid-template-columns:
                         [t-1100] 21% [t-1115] 21% [t-1130] 21% [t-1145] 21%
                         [t-1200] 21% [t-1215] 21% [t-1230] 21% [t-1245] 21%

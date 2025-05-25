@@ -1,3 +1,5 @@
+const API_BASEURL = "https://api.loveufestival.rileydeman.com/";
+
 if (!localStorage.getItem("loveufestival-theme") || localStorage.getItem("loveufestival-theme") == "") {
     localStorage.setItem("loveufestival-theme", "dark");
 }

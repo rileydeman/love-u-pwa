@@ -11,29 +11,80 @@ for (let i = 0; i < daySectorItems.length; i++) {
 
         daySectorItems[i].classList.add("dsi-selected");
         currentDay = daySectorItems[i].getAttribute("data-day");
+        getTimetable();
     })
 }
 
 // TimeTable
-const stages = [
-    {
-        name: "Kasteel de Haar",
-        colour: "#FE0000"
-    },
-    {
-        name: "De Dom",
-        colour: "#A100FE"
-    },
-    {
-        name: "Pyramide van Austerlitz",
-        colour: "#808080"
-    },
-    {
-        name: "Dom Under",
-        colour: "#FF008A"
-    },
-    {
-        name: "Dom Under Afterparty",
-        colour: "#FF008A"
+
+let tableData;
+
+function getTimetable() {
+    // console.log(`Getting Data from: ${API_BASEURL}v1/timetable?day=${currentDay}`);
+
+    fetch(`${API_BASEURL}v1/timetable/?day=${currentDay}`, {
+        method: "GET"
+    })
+        .then(response => {
+            // Check if the request was successful
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            // Parse the response as JSON
+            return response.json();
+        })
+        .then(data => {
+            // Handle the JSON data
+            // console.log(data);
+            tableData = data.payload;
+            updateTimeTable();
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('There was a problem with the fetch operation:', error);
+        });
+}
+
+getTimetable();
+
+function updateTimeTable() {
+    let timeTableGrid = document.getElementById("festivalGrid");
+
+    emptyTimeTable();
+
+    tableData.forEach((e) => {
+        let stage = e;
+        let acts = e.acts
+        timeTableGrid.innerHTML += '<div class="stageName-wrapper"><p class="stageName">' + stage.stageName + '</p></div>';
+
+        timeTableGrid.innerHTML += '<div class="timeLine">' + setupActs(acts, stage.stageColour) + '</div>';
+    })
+
+    function setupActs(acts, colour) {
+        let actsHTML = "";
+
+        acts.forEach((act) => {
+
+            actsHTML += '<div class="timelineEvent" data-event-id="act' + act.tableID + '" style="grid-row: 1; grid-column: t-' + act.startTime.code + ' / t-' + act.endTime.code + '; background-color: ' + colour + ';">';
+
+            actsHTML += '<div class="tle-info"><p class="tle-artist">' + act.name + '</p><p class="tle-time">' + act.startTime.time + ' &mdash; ' + act.endTime.time + '</p></div>'
+
+            actsHTML += '</div>';
+        })
+
+        return actsHTML;
     }
-    ];
+}
+
+function emptyTimeTable() {
+    let stageNames = document.getElementsByClassName("stageName-wrapper");
+    let timeLines = document.getElementsByClassName("timeLine");
+
+    while (stageNames.length > 0) {
+        stageNames[0].remove();
+    }
+
+    while (timeLines.length > 1) {
+        timeLines[1].remove();
+    }
+}
