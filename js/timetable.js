@@ -52,20 +52,22 @@ function updateTimeTable() {
 
     emptyTimeTable();
 
-    tableData.forEach((e) => {
+    tableData.forEach((e, i) => {
         let stage = e;
         let acts = e.acts
         timeTableGrid.innerHTML += '<div class="stageName-wrapper"><p class="stageName">' + stage.stageName + '</p></div>';
 
-        timeTableGrid.innerHTML += '<div class="timeLine">' + setupActs(acts, stage.stageColour) + '</div>';
+        timeTableGrid.innerHTML += '<div class="timeLine">' + setupActs(acts, stage.stageColour, i) + '</div>';
     })
 
-    function setupActs(acts, colour) {
+    setupActsClickEvents();
+
+    function setupActs(acts, colour, stageIndex) {
         let actsHTML = "";
 
-        acts.forEach((act) => {
+        acts.forEach((act, i) => {
 
-            actsHTML += '<div class="timelineEvent" data-event-id="act' + act.tableID + '" style="grid-row: 1; grid-column: t-' + act.startTime.code + ' / t-' + act.endTime.code + '; background-color: ' + colour + ';">';
+            actsHTML += '<div class="timelineEvent" data-event-id="' + act.tableID + '" data-stage-index="' + stageIndex + '" data-timeline-index="' + i + '" style="grid-row: 1; grid-column: t-' + act.startTime.code + ' / t-' + act.endTime.code + '; background-color: ' + colour + ';">';
 
             actsHTML += '<div class="tle-info"><p class="tle-artist">' + act.name + '</p><p class="tle-time">' + act.startTime.time + ' &mdash; ' + act.endTime.time + '</p></div>'
 
@@ -73,6 +75,16 @@ function updateTimeTable() {
         })
 
         return actsHTML;
+    }
+}
+
+function setupActsClickEvents() {
+    let timelineEvents = document.getElementsByClassName("timelineEvent");
+
+    for (let i = 0; i < timelineEvents.length; i++) {
+        timelineEvents[i].addEventListener('click', function(event) {
+            openModal(timelineEvents[i].getAttribute("data-stage-index"), timelineEvents[i].getAttribute("data-timeline-index"));
+        })
     }
 }
 
@@ -87,4 +99,18 @@ function emptyTimeTable() {
     while (timeLines.length > 1) {
         timeLines[1].remove();
     }
+}
+
+function openModal(stageIndex, timelineIndex) {
+    console.log("open modal for:", `stage - ${stageIndex}, timeline event - ${timelineIndex}`);
+    //console.log(tableData);
+
+    console.log(tableData[stageIndex].acts[timelineIndex])
+    document.getElementById("actInfoModal").style.display = "flex";
+}
+
+document.getElementById("actInfoModal").addEventListener("click", closeModal);
+
+function closeModal() {
+    document.getElementById("actInfoModal").style.display = "none";
 }
