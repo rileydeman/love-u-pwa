@@ -105,14 +105,11 @@ function emptyTimeTable() {
 // Modal control
 function openModal(stageIndex, timelineIndex) {
     let data = tableData[stageIndex];
-
-    console.log("open modal for:", `stage - ${stageIndex}, timeline event - ${timelineIndex}`);
-    //console.log(tableData);
-
-    console.log(data.acts[timelineIndex])
+    // console.log(data.acts[timelineIndex])
 
     document.getElementById("aim-img").setAttribute("src", data.acts[timelineIndex].img.square);
     document.getElementById("aimh-title").innerHTML = data.acts[timelineIndex].name;
+    document.getElementById("aimh-genre").innerHTML = data.acts[timelineIndex].genre;
     document.getElementById("aimh-startTime").innerHTML = data.acts[timelineIndex].startTime.time;
     document.getElementById("aimh-endTime").innerHTML = data.acts[timelineIndex].endTime.time;
     document.getElementById("aimh-stage").innerHTML = data.stageName;
