@@ -1,0 +1,66 @@
+#content {
+    main {
+        padding: 2.5%;
+
+        #daySelector {
+            background-color: var(--base);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+
+            .ds-item {
+                width: 33.33%;
+                padding: 2.5%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .dsi-selected {
+                background-color: var(--primary);
+
+                p {
+                    color: var(--base);
+                }
+            }
+        }
+
+        #lineupGrid {
+            margin-top: .5svh;
+            display: grid;
+            grid-column-gap: 1%;
+            grid-row-gap: .5svh;
+            grid-template-columns: 49.5% 49.5%;
+
+            .actCard {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+
+                .actImg {
+                    aspect-ratio: 1/1;
+                    width: 100%;
+                    object-fit: cover;
+                }
+
+                .actNameDiv {
+                    width: 100%;
+                    background-color: var(--secondary);
+                    padding: 3% 2.5%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .actName {
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}

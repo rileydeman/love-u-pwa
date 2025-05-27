@@ -1,14 +1,15 @@
 {
   "name": "❤️U Festival",
   "short_name": "❤️U Festival",
-  "start_url": "The URL that should be loaded when your application is opened",
+  "start_url": "https://loveufestival.rileydeman.com",
   "display": "standalone",
-  "description": "A description for your application",
+  "description": "The Festival app for ❤️U Festivals",
   "lang": "en-AU",
   "dir": "auto",
   "theme_color": "#000000",
   "background_color": "#000000",
   "orientation": "any",
+  "scope": "/",
   "icons": [
     {
       "src": "icons/icon512.png",
