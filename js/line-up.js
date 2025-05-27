@@ -56,8 +56,10 @@ function updateLineUp() {
     let lineupGrid = document.getElementById("lineupGrid");
 
     lineUpData.forEach((act, i) => {
-        lineupGrid.innerHTML += '<div class="actCard"><img class="actImg" src="' + act.img.square + '" alt=""><div class="actNameDiv"><p class="actName">' + act.name + '</p></div></div>';
+        lineupGrid.innerHTML += '<div class="actCard" data-grid-index="' + i + '"><img class="actImg" src="' + act.img.square + '" alt=""><div class="actNameDiv"><p class="actName">' + act.name + '</p></div></div>';
     })
+
+    setupActsClickEvents();
 }
 
 function emptyLineUp() {
@@ -66,4 +68,33 @@ function emptyLineUp() {
     while (actCards.length > 0) {
         actCards[0].remove();
     }
+}
+
+function setupActsClickEvents() {
+    let actCards = document.getElementsByClassName("actCard");
+
+    for (let i = 0; i < actCards.length; i++) {
+        actCards[i].addEventListener('click', function(event) {
+            openModal(actCards[i].getAttribute("data-grid-index"));
+        })
+    }
+}
+
+// Modal controll
+
+function openModal(gridID) {
+    let data = lineUpData[gridID];
+    console.log(data);
+
+    document.getElementById("aim-coverImg").setAttribute("src", data.img.landscape);
+    document.getElementById("aim-img").setAttribute("src", data.img.square);
+    document.getElementById("aim-title").innerHTML = data.name;
+
+    document.getElementById("actInfoModal").style.top = 0;
+}
+
+document.getElementById("aimh-aimCloseIcon").addEventListener("click", closeModal);
+
+function closeModal() {
+    document.getElementById("actInfoModal").style.top = "100%";
 }

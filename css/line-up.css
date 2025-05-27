@@ -59,8 +59,137 @@
                     text-align: center;
 
                     .actName {
+                        color: #FFFFFF;
                         font-weight: bold;
                         font-size: 0.9rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#actInfoModal {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1001;
+    background-color: var(--base);
+    transition: .25s ease;
+
+    #aim-content {
+        height: 100svh;
+
+        #aim-header {
+            height: 10%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2.5% 1%;
+
+            p {
+                color: #FFFFFF;
+            }
+
+            #aimh-logoDiv {
+                width: 15%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                text-decoration: none;
+
+                #aimh-logo {
+                    aspect-ratio: 1/1;
+                    height: 90%;
+                    outline: none;
+                }
+
+                #aimh-logo-text {
+                    font-size: 1.5rem;
+                }
+            }
+
+            #aimh-pageName {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                p {
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                }
+            }
+
+            #aimh-aimClose {
+                width: 15%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: right;
+                text-decoration: none;
+                padding-right: 2.5%;
+
+                #aimh-aimCloseIcon {
+                    aspect-ratio: 1/1;
+                    height: 40%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    opacity: .65;
+
+                    img {
+                        aspect-ratio: 1/1;
+                        width: 90%;
+                    }
+                }
+            }
+        }
+
+        #aim-main {
+            height: 90%;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                display: none;
+                width: 0;
+            }
+
+            #aim-coverImg {
+                aspect-ratio: 16/9;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            #aimm-content {
+                padding: 2%;
+
+                #aim-act-profile {
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: space-between;
+
+                    #aim-imgDiv {
+                        width: 27.5%;
+
+                        #aim-img {
+                            aspect-ratio: 1/1;
+                            width: 100%;
+                            object-fit: cover;
+                            border-radius: 5px;
+                        }
+                    }
+
+                    #aim-actInfo {
+                        width: 70%;
+
+                        #aim-title {
+                            font-size: 1.5rem;
+                            font-weight: bold;
+                        }
                     }
                 }
             }
