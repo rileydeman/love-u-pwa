@@ -50,14 +50,17 @@
 
                 .actNameDiv {
                     width: 100%;
+                    height: 4rem;
                     background-color: var(--secondary);
-                    padding: 3% 2.5%;
+                    padding: 3%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    text-align: center;
 
                     .actName {
                         font-weight: bold;
+                        font-size: 0.9rem;
                     }
                 }
             }
