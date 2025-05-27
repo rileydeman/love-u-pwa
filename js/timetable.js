@@ -105,27 +105,34 @@ function emptyTimeTable() {
 // Modal control
 function openModal(stageIndex, timelineIndex) {
     let data = tableData[stageIndex];
-    // console.log(data.acts[timelineIndex])
+    // console.log(data)
 
+    document.getElementById("aim-coverImg").setAttribute("src", data.acts[timelineIndex].img.landscape);
     document.getElementById("aim-img").setAttribute("src", data.acts[timelineIndex].img.square);
-    document.getElementById("aimh-title").innerHTML = data.acts[timelineIndex].name;
-    document.getElementById("aimh-genre").innerHTML = data.acts[timelineIndex].genre;
-    document.getElementById("aimh-startTime").innerHTML = data.acts[timelineIndex].startTime.time;
-    document.getElementById("aimh-endTime").innerHTML = data.acts[timelineIndex].endTime.time;
-    document.getElementById("aimh-stage").innerHTML = data.stageName;
-    document.getElementById("aim-description").innerHTML = data.acts[timelineIndex].descr;
+    document.getElementById("aim-title").innerHTML = data.acts[timelineIndex].name;
+    document.getElementById("aim-genre").innerHTML = data.acts[timelineIndex].genre;
+    document.getElementById("aim-descr").innerHTML = data.acts[timelineIndex].descr;
     document.getElementById("aim-video").setAttribute("src", data.acts[timelineIndex].video.embed);
 
-    document.getElementById("actInfoModal").style.display = "flex";
+    let actShowCards = document.getElementsByClassName("aim-showCard");
+
+    while (actShowCards.length > 0) {
+        actShowCards[0].remove();
+    }
+
+    let showDay = currentDay === "SAT" ? "Saturday" : currentDay === "SUN" ? "Sunday": "";
+    document.getElementById("aim-actShows-repeater").innerHTML += '<div class="aim-showCard" style="background-color: ' + data.stageColour + ';"><p class="aim-stageName">' + data.stageName + '</p><p class="aim-times">' + showDay + ' &nbsp;&#8226;&nbsp; ' + data.acts[timelineIndex].startTime.time + ' &mdash; ' + data.acts[timelineIndex].endTime.time + '</p></div>';
+
+    document.getElementById("actInfoModal").style.top = 0;
 }
 
-document.getElementById("actInfoModal").addEventListener("click", closeModal);
-document.getElementById("aim-exit").addEventListener("click", closeModal);
+document.getElementById("aimh-aimCloseIcon").addEventListener("click", closeModal);
 
 function closeModal() {
-    document.getElementById("actInfoModal").style.display = "none";
+    document.getElementById("actInfoModal").style.top = "100%";
+    document.getElementById("aim-main").scrollTo(0, 0);
 }
 
-document.getElementById("aim-content").addEventListener("click", (e) => {
-    e.stopPropagation();
-});
+// document.getElementById("aim-content").addEventListener("click", (e) => {
+//     e.stopPropagation();
+// });

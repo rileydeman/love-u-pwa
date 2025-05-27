@@ -121,24 +121,49 @@
 
 <aside id="actInfoModal">
     <div id="aim-content">
-        <div id="aim-top">
-            <img src="https://www.scantraxx.com/gfx/news/292315890_757980805450123_2214994003650151153_n.jpg" alt="" id="aim-img">
-            <div id="aim-header">
-<!--                <p id="aimh-genre">Genre</p>-->
-                <p id="aimh-title">Act title</p>
-                <p id="aimh-genre">Genre</p>
-                <p id="aimh-times"><span id="aimh-startTime">11:00</span> &mdash; <span id="aimh-endTime">11:45</span></p>
-                <p id="aimh-stage">Stage</p>
+        <header id="aim-header">
+            <a id="aimh-logoDiv" href="/">
+                <img src="assets/img/logo-black.png" alt="" id="aimh-logo">
+            </a>
+            <div id="aimh-pageName">
+                <p id="aimh-title">ACT INFO</p>
             </div>
-            <div id="aim-close">
-                <div class="cross" id="aim-exit">
-                    <span></span>
-                    <span></span>
+            <div id="aimh-aimClose">
+                <div id="aimh-aimCloseIcon" >
+                    <img src="../assets/img/icons/close-white.png" alt="">
                 </div>
             </div>
-        </div>
-        <p id="aim-description">Description</p>
-        <iframe id="aim-video" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </header>
+        <main id="aim-main">
+            <div id="aim-cover">
+                <img id="aim-coverImg" src="https://hardstyle.com/gfx/news/2025/5%20Mei/ghost_stories_1728x1080.jpg" alt="">
+
+                <div id="aim-genreDiv">
+                    <p id="aim-genre">Euphoric Hardstyle</p>
+                </div>
+            </div>
+            <div id="aimm-content">
+                <div id="aim-act-profile">
+                    <div id="aim-imgDiv">
+                        <img id="aim-img" src="https://www.scantraxx.com/gfx/news/292315890_757980805450123_2214994003650151153_n.jpg" alt="">
+                    </div>
+                    <div id="aim-actInfo">
+                        <p id="aim-title">Ghost Stories</p>
+                        <p id="aim-descr">Description</p>
+                    </div>
+                </div>
+
+                <p class="subTitle">Selected Show</p>
+                <div id="aim-actShows-repeater">
+                    <div class="aim-showCard" style="background-color: var(--info);">
+                        <p class="aim-stageName" style="width: 100%;">There are Currently no Shows for this Act</p>
+                    </div>
+                </div>
+
+                <p class="subTitle">Video</p>
+                <iframe id="aim-video" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </main>
     </div>
 </aside>
 

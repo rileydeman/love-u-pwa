@@ -84,7 +84,7 @@ function setupActsClickEvents() {
 
 function openModal(gridID) {
     let data = lineUpData[gridID];
-    console.log(data);
+    // console.log(data);
 
     document.getElementById("aim-coverImg").setAttribute("src", data.img.landscape);
     document.getElementById("aim-img").setAttribute("src", data.img.square);
@@ -115,4 +115,5 @@ document.getElementById("aimh-aimCloseIcon").addEventListener("click", closeModa
 
 function closeModal() {
     document.getElementById("actInfoModal").style.top = "100%";
+    document.getElementById("aim-main").scrollTo(0, 0);
 }
