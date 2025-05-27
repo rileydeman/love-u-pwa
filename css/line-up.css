@@ -158,19 +158,43 @@
                 width: 0;
             }
 
-            #aim-coverImg {
-                aspect-ratio: 16/9;
-                width: 100%;
-                object-fit: cover;
+            #aim-cover {
+                position: relative;
+
+                #aim-coverImg {
+                    aspect-ratio: 16/9;
+                    width: 100%;
+                    object-fit: cover;
+                }
+
+                #aim-genreDiv {
+                    position: absolute;
+                    top: 3%;
+                    left: 2%;
+                    background-color: var(--secondary);
+                    padding: 1% 2%;
+                    border-radius: 3px;
+
+                    #aim-genre {
+                        color: #FFFFFF;
+                    }
+                }
             }
 
             #aimm-content {
                 padding: 2%;
 
+                .subTitle {
+                    font-weight: bold;
+                    font-size: 1.3rem;
+                    margin-bottom: 2.5%;
+                }
+
                 #aim-act-profile {
                     display: flex;
                     align-items: flex-start;
                     justify-content: space-between;
+                    margin-bottom: 4%;
 
                     #aim-imgDiv {
                         width: 27.5%;
@@ -180,6 +204,8 @@
                             width: 100%;
                             object-fit: cover;
                             border-radius: 5px;
+                            position: sticky;
+                            top: .5%;
                         }
                     }
 
@@ -189,8 +215,44 @@
                         #aim-title {
                             font-size: 1.5rem;
                             font-weight: bold;
+                            margin-bottom: 2.5%;
                         }
                     }
+                }
+
+                #aim-actShows-repeater {
+                    width: 100%;
+                    margin-bottom: 5%;
+
+                    .aim-showCard {
+                        padding: 5% 2.5%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        border-radius: 5px;
+
+                        p {
+                            color: #FFFFFF;
+                        }
+
+                        .aim-stageName {
+                            font-weight: bold;
+                            font-size: 1.1rem;
+                            width: 44.5%;
+                        }
+
+                        .aim-times {
+                            text-align: right;
+                            width: 54.5%;
+                        }
+                    }
+                }
+
+                #aim-video {
+                    aspect-ratio: 16/9;
+                    width: 100%;
+                    border-radius: 5px;
+                    margin-bottom: 2.5%;
                 }
             }
         }

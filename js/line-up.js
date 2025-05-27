@@ -89,6 +89,24 @@ function openModal(gridID) {
     document.getElementById("aim-coverImg").setAttribute("src", data.img.landscape);
     document.getElementById("aim-img").setAttribute("src", data.img.square);
     document.getElementById("aim-title").innerHTML = data.name;
+    document.getElementById("aim-genre").innerHTML = data.genre;
+    document.getElementById("aim-descr").innerHTML = data.descr;
+    document.getElementById("aim-video").setAttribute("src", data.video.embed);
+
+    let actShowCards = document.getElementsByClassName("aim-showCard");
+
+    while (actShowCards.length > 0) {
+        actShowCards[0].remove();
+    }
+
+    if (data.timeline) {
+        data.timeline.forEach((show) => {
+            let showDay = show.day === "SAT" ? "Saturday" : show.day === "SUN" ? "Sunday": "";
+            document.getElementById("aim-actShows-repeater").innerHTML += '<div class="aim-showCard" style="background-color: ' + show.stage.colour + ';"><p class="aim-stageName">' + show.stage.name + '</p><p class="aim-times">' + showDay + ' &nbsp;&#8226;&nbsp; ' + show.startTime.time + ' &mdash; ' + show.endTime.time + '</p></div>';
+        })
+    } else {
+        document.getElementById("aim-actShows-repeater").innerHTML += '<div class="aim-showCard" style="background-color: var(--info);"><p class="aim-stageName" style="width: 100%;">There are Currently no Shows for this Act</p></div>';
+    }
 
     document.getElementById("actInfoModal").style.top = 0;
 }
