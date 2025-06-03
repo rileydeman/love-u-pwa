@@ -34,9 +34,11 @@
 
         .horizontal-timetable {
             width: 100%;
-            max-height: 65vh;
+            max-height: 70vh;
             margin-top: 2.5%;
             overflow: scroll;
+            position: sticky;
+            top: 0;
             /*border: 1px solid #FF0000;*/
 
             &::-webkit-scrollbar:horizontal {
