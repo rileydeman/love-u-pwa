@@ -7,8 +7,54 @@
 ![License](https://img.shields.io/badge/license-Custom-lightgrey)
 
 
-Github Repo from the ❤️u festival app (PWA). (fictional festival)
+&#x2764;&#xfe0f;U festival is a fictional festival in the netherlands, this PWA (Progressive Web App) is made to be a companion on the festival grounds.
 
+---
+
+## 📚 Table of Contents
+
+- [Overview](#-overview)
+- [Features](#-features)
+- [Installation](#-installation-windows-with-android-emulator)
+- [Usage](#-usage)
+- [API Keys & Secrets Setup](#-api-keys--secrets-setup)
+- [Technical Information](#-technical-information)
+- [Planned Features](#-planned-features)
+- [Known Issues](#-known-issues)
+- [License Notice](#-license-notice)
+- [Copyright](#-copyright)
+- [License](#-license)
+
+---
+
+## 🧩 Overview
+
+**&#x2764;&#xfe0f;U festival PWA** is your companion on the festival grounds, with a interactive timetable, lineup and map, and all the other information you need.
+
+With this app, you will have all the needed information inside your handpalm!
+
+---
+
+### 🏠 Home — 🛠️ In Progress (Small title only)
+- **Latest updates** — All the updates from the festival - 🚧 Coming Soon
+
+### ℹ Info — 🚧 Coming Soon
+- All the handy information, like location, routes, and more!
+
+### 📅 TimeTable — ✅ Working
+- A nice view of the acts per day and how late they play on what stage
+
+### 📄 Line-Up — ✅ Working
+- All the acts that will be on the festival
+
+### 🗺 Map — 🛠️ In Progress
+- **Map view** You can see the festival grounds with all the stage areas and faculties — ✅ Implemented 
+- **Interactive stage areas** You can click on the stage areas for more information about that stage — ✅ Implemented
+- **Day Selector** You can change the day for the acts you can see in the stage information modal — ✅ Implemented
+- **Your current location** — 🚧 Coming Soon *(will use location-based data)*
+- **Legenda** — 🚧 Coming Soon *(To see what icon means what)*
+
+---
 
 ## ⚠️ License Notice
 

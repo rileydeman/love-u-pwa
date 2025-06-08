@@ -1,5 +1,5 @@
 const secrets = {
     "api": {
-        "mapbox": ""
+        "mapbox": "YOUR_MAPBOX_TOKEN"
     }
 };
