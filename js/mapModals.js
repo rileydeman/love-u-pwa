@@ -73,7 +73,7 @@ function openStageModal(stage) {
     }
 
     stageModal.style.top = "10%";
-    console.log(tableData[stage]);
+    // console.log(tableData[stage]);
 }
 
 function closeStageModal() {
