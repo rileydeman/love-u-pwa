@@ -17,9 +17,9 @@ map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-righ
 map.dragRotate.disable();
 map.touchZoomRotate.disableRotation();
 
-setInterval(() => {
-    console.log(map.getZoom());
-}, 1000);
+// setInterval(() => {
+//     console.log(map.getZoom());
+// }, 1000);
 
 map.on("load", () => {
     // Stage 1
@@ -80,6 +80,19 @@ map.on("load", () => {
     domUnder.buildStageArea();
     domUnder.addPointer();
 
+    const toilets = [];
+
+    toilets[0] = new facility(0);
+
+    toilets[0].addAreaCoords(52.073589, 5.062019);
+    toilets[0].addAreaCoords(52.073527, 5.062383);
+    toilets[0].addAreaCoords(52.073217, 5.062201);
+    toilets[0].addAreaCoords(52.073273, 5.061847);
+
+    toilets[0].setPointerCoords(52.073405, 5.062126);
+
+    toilets[0].buildArea();
+    toilets[0].addPointer();
 });
 
 
@@ -87,7 +100,7 @@ class stage {
     constructor(name, colour, nr) {
         this.id = name.replace(" ", "").toLowerCase();
         this.fillId = `${this.id}-fill`;
-        this.pointerId = `${this.id}-pointer`
+        this.pointerId = `${this.id}-pointer`;
         this.name = name;
         this.colour = colour;
         this.stageNr = nr;
@@ -118,7 +131,6 @@ class stage {
             }
         });
 
-        // Add a fill layer to color the polygon
         map.addLayer({
             'id': `${this.fillId}`,
             'type': 'fill',
@@ -154,7 +166,7 @@ class stage {
             type: 'circle',
             source: `${this.pointerId}`,
             paint: {
-                'circle-radius': 15,
+                'circle-radius': 18,
                 'circle-color': '#E3B505',
                 'circle-opacity': 0.8,
                 'circle-stroke-color': '#247BA0',
@@ -168,12 +180,136 @@ class stage {
             source: `${this.pointerId}`,
             layout: {
                 'text-field': ['get', 'number'],
-                'text-size': 15,
+                'text-size': 19,
                 'text-font': ["DIN Pro Bold"]
             },
             paint: {
                 'text-color': '#ffffff'
             }
+        });
+    }
+}
+
+const facilityTypes = [
+    {
+        name: "Toilet",
+        img: "toilet-pointer.png",
+        total: 0
+    },
+    {
+        name: "Food",
+        img: "food-pointer.png",
+        total: 0
+    },
+    {
+        name: "Bar",
+        img: "bar-pointer.png",
+        total: 0
+    },
+    {
+        name: "Lockers",
+        img: "lockers-pointer.png",
+        total: 0
+    },
+    {
+        name: "Ice Creams",
+        img: "ice-cream-pointer.png",
+        total: 0
+    },
+    {
+        name: "First Aid",
+        img: "first-aid-pointer.png",
+        total: 0
+    }
+];
+
+class facility {
+    constructor(type) {
+        facilityTypes[type].total++;
+        this.id = facilityTypes[type].name.replace(" ", "").toLowerCase() + facilityTypes[type].total;
+        this.fillId = `${this.id}-fill`;
+        this.pointerId = `${this.id}-pointer`;
+        this.name = facilityTypes[type].name;
+        this.img = facilityTypes[type].img;
+        this.areaCoords = [];
+        this.pointerCoords = [];
+    }
+
+    addAreaCoords(lat, long) {
+        this.areaCoords.push([long, lat]);
+    }
+
+    setPointerCoords(lat, long) {
+        this.pointerCoords = [long, lat];
+    }
+
+    buildArea() {
+        map.addSource(`${this.id}`, {
+            'type': 'geojson',
+            'data': {
+                'type': 'Feature',
+                'geometry': {
+                    'type': 'Polygon',
+                    'coordinates': [
+                        this.areaCoords,
+                        this.areaCoords[0] // closed loop
+                    ]
+                }
+            }
+        });
+
+        // Add a fill layer to color the polygon
+        map.addLayer({
+            'id': `${this.fillId}`,
+            'type': 'fill',
+            'source': `${this.id}`,
+            'layout': {},
+            'paint': {
+                'fill-color': "#98FF98",
+                'fill-opacity': 0.5
+            }
+        });
+    }
+
+    addPointer() {
+        map.loadImage(`https://loveufestival.rileydeman.com/assets/img/map/${this.img}`, (error, image) => {
+            if (error) throw error;
+            map.addImage(`${this.pointerId}`, image);
+
+            // Add GeoJSON source
+            map.addSource(`${this.pointerId}`, {
+                type: 'geojson',
+                data: {
+                    type: 'FeatureCollection',
+                    features: [{
+                        type: 'Feature',
+                        geometry: {
+                            type: 'Point',
+                            coordinates: this.pointerCoords
+                        }
+                    }]
+                }
+            });
+
+            // Add the image symbol layer
+            map.addLayer({
+                id: `${this.pointerId}`,
+                type: 'symbol',
+                source: `${this.pointerId}`,
+                layout: {
+                    'icon-image': `${this.pointerId}`,
+                    'icon-size': [
+                        'interpolate',
+                        ['linear'],
+                        ['zoom'],
+                        14, 0.15,
+                        15.74, 0.15,
+                        15.75, 0.45,
+                        22, 0.45
+                    ],
+                    'icon-allow-overlap': true
+                }
+            });
         });
     }
 }
