@@ -298,6 +298,8 @@ class stage {
                 'fill-opacity': 0.5
             }
         });
+
+        this.setClickEvent("polygon");
     }
 
     addPointer() {
@@ -344,7 +346,27 @@ class stage {
                 'text-color': '#ffffff'
             }
         });
+
+        this.setClickEvent("pointer");
     }
+
+    setClickEvent(type) {
+        const layerId = type === "polygon" ? this.fillId : `${this.id}-circle-layer`;
+
+        map.on('mouseenter', layerId, () => {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        map.on('mouseleave', layerId, () => {
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.on('click', layerId, (e) => {
+            // Pass relevant data to your modal function
+            openStageModal((this.stageNr - 1));
+        });
+    }
+
 }
 
 const facilityTypes = [

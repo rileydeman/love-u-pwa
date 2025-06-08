@@ -24,6 +24,7 @@
     <script defer src="js/app.js"></script>
     <script defer src="js/settings.js"></script>
     <script defer src="js/map.js"></script>
+    <script defer src="js/mapModals.js"></script>
 </head>
 <body data-theme="dark">
 
@@ -32,6 +33,10 @@
 <div id="content">
     <main>
         <div id="map"></div>
+        <div id="daySelector">
+            <p id="ds-text">Saturday</p>
+            <img id="ds-icon" src="assets/img/icons/replace-white.png" alt="">
+        </div>
     </main>
 
     <footer id="footer"></footer>
@@ -40,6 +45,19 @@
 <nav id="nav"></nav>
 
 <aside id="settings"></aside>
+
+<aside id="stageInfoModal">
+    <div id="sim-top">
+        <img src="assets/img/icons/close-white.png" alt="" id="closeModal">
+    </div>
+    <div id="sim-titleDiv" style="background-color: #FF0000">
+        <p id="sim-title">Title</p>
+        <p id="sim-details">Details</p>
+    </div>
+    <div id="sim-timetable">
+
+    </div>
+</aside>
 
 </body>
 </html>
