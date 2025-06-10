@@ -35,8 +35,8 @@ With this app, you will have all the needed information inside your handpalm!
 
 ---
 
-### 🏠 Home — 🛠️ In Progress (Small title only)
-- **Latest updates** — All the updates from the festival - 🚧 Coming Soon
+### 🏠 Home — ✅ Working
+- **Links/buttons to important pages** — All the links to the important pages - ✅ Implemented
 
 ### ℹ Info — ✅ Working
 - All the handy information, like location, routes, and more!
