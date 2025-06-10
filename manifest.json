@@ -26,10 +26,46 @@
   ],
   "screenshots": [
     {
-      "src": "https://www.pwabuilder.com/assets/screenshots/screen1.png",
-      "sizes": "2880x1800",
-      "type": "image/png",
-      "description": "A screenshot of the home page"
+      "src": "https://loveufestival.rileydeman.com/assets/img/screenshots/timetable.jpg",
+      "sizes": "1080x2408",
+      "type": "image/jpg",
+      "description": "A screenshot of the timetable page"
+    },
+    {
+      "src": "https://loveufestival.rileydeman.com/assets/img/screenshots/line-up.jpg",
+      "sizes": "1080x2408",
+      "type": "image/jpg",
+      "description": "A screenshot of the line up page"
+    },
+    {
+      "src": "https://loveufestival.rileydeman.com/assets/img/screenshots/act-info.jpg",
+      "sizes": "1080x2408",
+      "type": "image/jpg",
+      "description": "A screenshot of the act information modal"
+    },
+    {
+      "src": "https://loveufestival.rileydeman.com/assets/img/screenshots/map.jpg",
+      "sizes": "1080x2408",
+      "type": "image/jpg",
+      "description": "A screenshot of the map page"
+    },
+    {
+      "src": "https://loveufestival.rileydeman.com/assets/img/screenshots/map-legenda.jpg",
+      "sizes": "1080x2408",
+      "type": "image/jpg",
+      "description": "A screenshot of the map legenda modal"
+    },
+    {
+      "src": "https://loveufestival.rileydeman.com/assets/img/screenshots/map-stage-info.jpg",
+      "sizes": "1080x2408",
+      "type": "image/jpg",
+      "description": "A screenshot of the map stage information modal"
+    },
+    {
+      "src": "https://loveufestival.rileydeman.com/assets/img/screenshots/settings.jpg",
+      "sizes": "1080x2408",
+      "type": "image/jpg",
+      "description": "A screenshot of the settings"
     }
   ],
   "related_applications": [
@@ -54,6 +90,11 @@
       "name":"MAP",
       "url":"/map",
       "description":"Check the Map/Floorplan for the festival!"
+    },
+    {
+      "name":"INFORMATION",
+      "url":"/info",
+      "description":"Check all the important information for the festival!"
     }
   ]
 }
