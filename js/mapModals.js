@@ -79,3 +79,25 @@ function openStageModal(stage) {
 function closeStageModal() {
     stageModal.style.top = "100%";
 }
+
+let legendaOpen = false;
+
+document.getElementById("legenda-title").addEventListener("click", toggleLegenda);
+document.getElementById("legenda-modal").addEventListener("click", toggleLegenda);
+document.getElementById("legenda-content").addEventListener("click", (e) => {
+    e.stopPropagation();
+});
+
+function toggleLegenda() {
+    if (legendaOpen) {
+        document.getElementById("legenda-openclose-icon").style.rotate = "0deg";
+        document.getElementById("legenda-modal").classList.remove("lm-open");
+
+        legendaOpen = !legendaOpen;
+    } else {
+        document.getElementById("legenda-openclose-icon").style.rotate = "45deg";
+        document.getElementById("legenda-modal").classList.add("lm-open");
+
+        legendaOpen = !legendaOpen;
+    }
+}

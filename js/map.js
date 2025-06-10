@@ -9,7 +9,7 @@ const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/satellite-v9',
     center: [5.059045, 52.075577],
-    zoom: 15.25,
+    zoom: 14.75,
     maxBounds: [sw, ne]
 });
 
