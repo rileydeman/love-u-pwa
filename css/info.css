@@ -1,0 +1,94 @@
+#content {
+    main {
+        padding: 2.5%;
+
+        .info-category {
+            width: 100%;
+            margin: 7.5% 0;
+
+            &:first-child {
+                margin-top: 0 !important;
+            }
+
+            &:last-child {
+                margin-bottom: 0 !important;
+            }
+
+            .ic-title {
+                width: 100%;
+                background-color: var(--accent);
+                padding: 5% 2.5%;
+                margin-bottom: 5%;
+
+                p {
+                    font-size: 1.3rem;
+                    font-weight: bold;
+                    color: #FFFFFF;
+                }
+            }
+
+            .ic-item {
+                background-color: var(--secondary);
+                margin-bottom: 2.5%;
+
+                p {
+                    color: #FFFFFF;
+                }
+
+                .ici-title {
+                    padding: 3.5% 2%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    p {
+                        font-size: 1.15rem;
+                        font-weight: bold;
+                        max-width: 90%;
+                    }
+
+                    .ici-openclose-icon {
+                        aspect-ratio: 1/1;
+                        width: 6%;
+                        position: relative;
+                        transition: .25s ease;
+
+                        span {
+                            display: inline-block;
+                            background-color: #FFFFFF;
+                            width: 75%;
+                            height: 10%;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+
+                        .vertical {
+                            width: 10%;
+                            height: 75%;
+                        }
+                    }
+                }
+
+                .ici-content {
+                    padding: 0 2.5%;
+                    border-top: 0 solid var(--base);
+                    transition: .25s ease;
+                    overflow: hidden;
+                    height: 0;
+
+                    a {
+                        color: #FFFFFF;
+                    }
+                }
+
+                .icic-open {
+                    padding: 2.5%;
+                    border-top: 2px solid var(--base);
+                    height: fit-content;
+                }
+            }
+        }
+    }
+}
