@@ -48,11 +48,11 @@ With this app, you will have all the needed information inside your handpalm!
 - All the acts that will be on the festival
 
 ### 🗺 Map — 🛠️ In Progress
-- **Map view** You can see the festival grounds with all the stage areas and faculties — ✅ Implemented 
-- **Interactive stage areas** You can click on the stage areas for more information about that stage — ✅ Implemented
-- **Day Selector** You can change the day for the acts you can see in the stage information modal — ✅ Implemented
+- **Map view** — You can see the festival grounds with all the stage areas and faculties — ✅ Implemented 
+- **Interactive stage areas** — You can click on the stage areas for more information about that stage — ✅ Implemented
+- **Day Selector** — You can change the day for the acts you can see in the stage information modal — ✅ Implemented
 - **Your current location** — 🚧 Coming Soon *(will use location-based data)*
-- **Legenda** — 🚧 Coming Soon *(To see what icon means what)*
+- **Legenda** — You can click on the text legenda to open the legenda to see what each icon means — ✅ Implemented
 
 ---
 

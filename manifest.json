@@ -44,6 +44,16 @@
       "name":"TIMETABLE",
       "url":"/timetable",
       "description":"Check the Time Table for the festival!"
+    },
+    {
+      "name":"LINE UP",
+      "url":"/line-up",
+      "description":"Check the Line Up for the festival!"
+    },
+    {
+      "name":"MAP",
+      "url":"/map",
+      "description":"Check the Map/Floorplan for the festival!"
     }
   ]
 }
